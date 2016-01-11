@@ -3020,7 +3020,20 @@
             <field type="float" name="size_x">Size in radians of target along x-axis</field>
             <field type="float" name="size_y">Size in radians of target along y-axis</field>
         </message>
+
         <!-- MESSAGE IDs 180 - 240: Space for custom messages in individual projectname_messages.xml files -->
+
+        <message id="180" name="PIXY_CAM_PTS">
+            <description>The raw points from a pixy camera</description>
+            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
+            <field type="uint64_t" name="count">Number of valid points</field>
+            <field type="float[4]" name="x">X-coordinate of detected point</field>
+            <field type="float[4]" name="y">Y-coordinate of detected point</field>
+            <field type="float[4]" name="width">Width of bounding box</field>
+            <field type="float[4]" name="height">Height of bounding box</field>
+        </message>        
+
+
         <message id="241" name="VIBRATION">
             <description>Vibration levels and accelerometer clipping</description>
             <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
