@@ -3023,7 +3023,7 @@
 
         <!-- MESSAGE IDs 180 - 240: Space for custom messages in individual projectname_messages.xml files -->
 
-        <message id="180" name="PIXY_CAM_PTS">
+        <message id="160" name="PIXY_CAM_PTS">
             <description>The raw points from a pixy camera</description>
             <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
             <field type="uint64_t" name="count">Number of valid points</field>
@@ -3033,6 +3033,17 @@
             <field type="float[4]" name="height">Height of bounding box</field>
         </message>        
 
+        <message id="161" name="TARGET_LAND_POSITION">
+            <description>"Position of landing target in global frame and offset from camera in meter"</description>
+            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
+            <field type="int32_t" name="lat">Latitude (WGS84), in degrees * 1E7</field>
+            <field type="int32_t" name="lon">Longitude (WGS84, in degrees * 1E7</field>
+            <field type="int32_t" name="alt">Altitude (AMSL), in meters * 1000 (positive for up)</field>
+            <field type="float" name="x">x offset to target in vehicle NED frame in m</field>
+            <field type="float" name="y">y offset to target in vehicle NED frame in m</field>
+            <field type="float" name="z">z offset to target in vehicle NED frame in m</field>
+            <field type="float" name="yaw">yaw offset to target in vehicle NED frame in radians</field>
+        </message>       
 
         <message id="241" name="VIBRATION">
             <description>Vibration levels and accelerometer clipping</description>
@@ -3046,9 +3057,9 @@
         </message>
         <message id="242" name="HOME_POSITION">
                <description>This message can be requested by sending the MAV_CMD_GET_HOME_POSITION command. The position the system will return to and land on. The position is set automatically by the system during the takeoff in case it was not explicitely set by the operator before or after. The position the system will return to and land on. The global and local positions encode the position in the respective coordinate frames, while the q parameter encodes the orientation of the surface. Under normal conditions it describes the heading and terrain slope, which can be used by the aircraft to adjust the approach. The approach 3D vector describes the point to which the system should fly in normal flight mode and then perform a landing sequence along the vector.</description>
-               <field type="int32_t" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
-               <field type="int32_t" name="longitude">Longitude (WGS84, in degrees * 1E7</field>
-               <field type="int32_t" name="altitude">Altitude (AMSL), in meters * 1000 (positive for up)</field>
+               <field type="float" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
+               <field type="float" name="longitude">Longitude (WGS84, in degrees * 1E7</field>
+               <field type="float" name="altitude">Altitude (AMSL), in meters * 1000 (positive for up)</field>
                <field type="float" name="x">Local X position of this position in the local coordinate frame</field>
                <field type="float" name="y">Local Y position of this position in the local coordinate frame</field>
                <field type="float" name="z">Local Z position of this position in the local coordinate frame</field>
