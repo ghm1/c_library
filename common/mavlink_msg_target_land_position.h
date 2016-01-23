@@ -8,9 +8,9 @@ typedef struct __mavlink_target_land_position_t
  int32_t lat; /*< Latitude (WGS84), in degrees * 1E7*/
  int32_t lon; /*< Longitude (WGS84, in degrees * 1E7*/
  int32_t alt; /*< Altitude (AMSL), in meters * 1000 (positive for up)*/
- float x; /*< x offset to target in vehicle NED frame in m*/
- float y; /*< y offset to target in vehicle NED frame in m*/
- float z; /*< z offset to target in vehicle NED frame in m*/
+ float x; /*< local target x position in NED frame in m*/
+ float y; /*< local target y position in NED frame in m*/
+ float z; /*< local target z position in NED frame in m*/
  float yaw; /*< yaw offset to target in vehicle NED frame in radians*/
 } mavlink_target_land_position_t;
 
@@ -47,9 +47,9 @@ typedef struct __mavlink_target_land_position_t
  * @param lat Latitude (WGS84), in degrees * 1E7
  * @param lon Longitude (WGS84, in degrees * 1E7
  * @param alt Altitude (AMSL), in meters * 1000 (positive for up)
- * @param x x offset to target in vehicle NED frame in m
- * @param y y offset to target in vehicle NED frame in m
- * @param z z offset to target in vehicle NED frame in m
+ * @param x local target x position in NED frame in m
+ * @param y local target y position in NED frame in m
+ * @param z local target z position in NED frame in m
  * @param yaw yaw offset to target in vehicle NED frame in radians
  * @return length of the message in bytes (excluding serial stream start sign)
  */
@@ -100,9 +100,9 @@ static inline uint16_t mavlink_msg_target_land_position_pack(uint8_t system_id, 
  * @param lat Latitude (WGS84), in degrees * 1E7
  * @param lon Longitude (WGS84, in degrees * 1E7
  * @param alt Altitude (AMSL), in meters * 1000 (positive for up)
- * @param x x offset to target in vehicle NED frame in m
- * @param y y offset to target in vehicle NED frame in m
- * @param z z offset to target in vehicle NED frame in m
+ * @param x local target x position in NED frame in m
+ * @param y local target y position in NED frame in m
+ * @param z local target z position in NED frame in m
  * @param yaw yaw offset to target in vehicle NED frame in radians
  * @return length of the message in bytes (excluding serial stream start sign)
  */
@@ -179,9 +179,9 @@ static inline uint16_t mavlink_msg_target_land_position_encode_chan(uint8_t syst
  * @param lat Latitude (WGS84), in degrees * 1E7
  * @param lon Longitude (WGS84, in degrees * 1E7
  * @param alt Altitude (AMSL), in meters * 1000 (positive for up)
- * @param x x offset to target in vehicle NED frame in m
- * @param y y offset to target in vehicle NED frame in m
- * @param z z offset to target in vehicle NED frame in m
+ * @param x local target x position in NED frame in m
+ * @param y local target y position in NED frame in m
+ * @param z local target z position in NED frame in m
  * @param yaw yaw offset to target in vehicle NED frame in radians
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
@@ -317,7 +317,7 @@ static inline int32_t mavlink_msg_target_land_position_get_alt(const mavlink_mes
 /**
  * @brief Get field x from target_land_position message
  *
- * @return x offset to target in vehicle NED frame in m
+ * @return local target x position in NED frame in m
  */
 static inline float mavlink_msg_target_land_position_get_x(const mavlink_message_t* msg)
 {
@@ -327,7 +327,7 @@ static inline float mavlink_msg_target_land_position_get_x(const mavlink_message
 /**
  * @brief Get field y from target_land_position message
  *
- * @return y offset to target in vehicle NED frame in m
+ * @return local target y position in NED frame in m
  */
 static inline float mavlink_msg_target_land_position_get_y(const mavlink_message_t* msg)
 {
@@ -337,7 +337,7 @@ static inline float mavlink_msg_target_land_position_get_y(const mavlink_message
 /**
  * @brief Get field z from target_land_position message
  *
- * @return z offset to target in vehicle NED frame in m
+ * @return local target z position in NED frame in m
  */
 static inline float mavlink_msg_target_land_position_get_z(const mavlink_message_t* msg)
 {

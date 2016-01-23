@@ -3039,6 +3039,15 @@
             <field type="int32_t" name="lat">Latitude (WGS84), in degrees * 1E7</field>
             <field type="int32_t" name="lon">Longitude (WGS84, in degrees * 1E7</field>
             <field type="int32_t" name="alt">Altitude (AMSL), in meters * 1000 (positive for up)</field>
+            <field type="float" name="x">local target x position in NED frame in m</field>
+            <field type="float" name="y">local target y position in NED frame in m</field>
+            <field type="float" name="z">local target z position in NED frame in m</field>
+            <field type="float" name="yaw">yaw offset to target in vehicle NED frame in radians</field>
+        </message>       
+
+        <message id="162" name="TARGET_LAND_OFFSET">
+            <description>"Offset of detected target to camera in BNED frame in meter"</description>
+            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
             <field type="float" name="x">x offset to target in vehicle NED frame in m</field>
             <field type="float" name="y">y offset to target in vehicle NED frame in m</field>
             <field type="float" name="z">z offset to target in vehicle NED frame in m</field>
